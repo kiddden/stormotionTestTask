@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		8059932C29802890007483AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059932B29802890007483AE /* AppDelegate.swift */; };
 		8059932E29802890007483AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059932D29802890007483AE /* SceneDelegate.swift */; };
-		8059933029802890007483AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059932F29802890007483AE /* ViewController.swift */; };
-		8059933329802890007483AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8059933129802890007483AE /* Main.storyboard */; };
 		8059933529802891007483AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8059933429802891007483AE /* Assets.xcassets */; };
 		8059933829802891007483AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8059933629802891007483AE /* LaunchScreen.storyboard */; };
+		805993402980295C007483AE /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059933F2980295C007483AE /* FeedViewController.swift */; };
+		8059934329803278007483AE /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059934229803278007483AE /* PostViewController.swift */; };
+		80599346298053AF007483AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80599345298053AF007483AE /* Constants.swift */; };
+		8059934929808714007483AE /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 8059934829808714007483AE /* script.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8059932829802890007483AE /* StormotionTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormotionTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8059932B29802890007483AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8059932D29802890007483AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8059932F29802890007483AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8059933229802890007483AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8059933429802891007483AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8059933729802891007483AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8059933929802891007483AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8059933F2980295C007483AE /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		8059934229803278007483AE /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		80599345298053AF007483AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8059934829808714007483AE /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		8059932A29802890007483AE /* StormotionTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				80599347298086D9007483AE /* Resources */,
+				80599344298053A3007483AE /* Utilities */,
+				805993412980325F007483AE /* Screens */,
 				8059932B29802890007483AE /* AppDelegate.swift */,
 				8059932D29802890007483AE /* SceneDelegate.swift */,
-				8059932F29802890007483AE /* ViewController.swift */,
-				8059933129802890007483AE /* Main.storyboard */,
 				8059933429802891007483AE /* Assets.xcassets */,
 				8059933629802891007483AE /* LaunchScreen.storyboard */,
 				8059933929802891007483AE /* Info.plist */,
 			);
 			path = StormotionTestTask;
+			sourceTree = "<group>";
+		};
+		805993412980325F007483AE /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8059933F2980295C007483AE /* FeedViewController.swift */,
+				8059934229803278007483AE /* PostViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		80599344298053A3007483AE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				80599345298053AF007483AE /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		80599347298086D9007483AE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8059934829808714007483AE /* script.js */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8059933829802891007483AE /* LaunchScreen.storyboard in Resources */,
+				8059934929808714007483AE /* script.js in Resources */,
 				8059933529802891007483AE /* Assets.xcassets in Resources */,
-				8059933329802890007483AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8059933029802890007483AE /* ViewController.swift in Sources */,
+				80599346298053AF007483AE /* Constants.swift in Sources */,
+				8059934329803278007483AE /* PostViewController.swift in Sources */,
 				8059932C29802890007483AE /* AppDelegate.swift in Sources */,
+				805993402980295C007483AE /* FeedViewController.swift in Sources */,
 				8059932E29802890007483AE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +179,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8059933129802890007483AE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8059933229802890007483AE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8059933629802891007483AE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +240,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,9 +316,9 @@
 				INFOPLIST_FILE = StormotionTestTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,6 +326,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stt.StormotionTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -320,9 +347,9 @@
 				INFOPLIST_FILE = StormotionTestTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,6 +357,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stt.StormotionTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PostViewController.swift
 //  StormotionTestTask
 //
 //  Created by Eugene Ned on 24.01.2023.
@@ -7,13 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
 }
-
