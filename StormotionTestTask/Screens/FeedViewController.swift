@@ -17,27 +17,27 @@ class FeedViewController: UIViewController, WKNavigationDelegate {
         feedWebView.navigationDelegate = self
         view = feedWebView
         feedWebView.scrollView.contentInsetAdjustmentBehavior = .never
+        feedWebView.backgroundColor = .systemBackground
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initializeWebView()
+        showLoadingView()
         configureWebView()
-        
-    }
-    
-    private func initializeWebView() {
-        guard let filepath = Bundle.main.path(forResource: "script", ofType: "js"), let js = try? String(contentsOfFile: filepath) else { return }
-        let userScript = WKUserScript.init(source: js, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-        feedWebView.configuration.userContentController.addUserScript(userScript)
-        feedWebView.configuration.userContentController.add(self, name: "jsMessenger")
+        injectJSCode()
     }
     
     private func configureWebView() {
         title = "Feed"
-        guard let url = BaseURLs.feedURL else { return }
+        guard let url = URL(string: BaseURLs.feedURL) else { return }
         feedWebView.load(URLRequest(url: url))
-        feedWebView.allowsBackForwardNavigationGestures = true
+    }
+    
+    private func injectJSCode() {
+        guard let filepath = Bundle.main.path(forResource: "script", ofType: "js"), let js = try? String(contentsOfFile: filepath) else { return }
+        let userScript = WKUserScript.init(source: js, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+        feedWebView.configuration.userContentController.addUserScript(userScript)
+        feedWebView.configuration.userContentController.add(self, name: "jsMessenger")
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -46,10 +46,16 @@ class FeedViewController: UIViewController, WKNavigationDelegate {
         insets.bottom = 0
         feedWebView.scrollView.contentInset = insets
     }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        dismissLoadingView()
+    }
 }
 
 extension FeedViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        print(message.body)
+        let postVC = PostViewController(articleID: message.body as! String)
+        let navController = UINavigationController(rootViewController: postVC)
+        present(navController, animated: true)
     }
 }

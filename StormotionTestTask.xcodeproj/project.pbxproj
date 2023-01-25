@@ -15,6 +15,7 @@
 		8059934329803278007483AE /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059934229803278007483AE /* PostViewController.swift */; };
 		80599346298053AF007483AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80599345298053AF007483AE /* Constants.swift */; };
 		8059934929808714007483AE /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 8059934829808714007483AE /* script.js */; };
+		80E893232980AEA500A961C4 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E893222980AEA500A961C4 /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8059934229803278007483AE /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		80599345298053AF007483AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8059934829808714007483AE /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		80E893222980AEA500A961C4 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		8059932A29802890007483AE /* StormotionTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				80E893212980AE8800A961C4 /* Extensions */,
 				80599347298086D9007483AE /* Resources */,
 				80599344298053A3007483AE /* Utilities */,
 				805993412980325F007483AE /* Screens */,
@@ -95,6 +98,14 @@
 				8059934829808714007483AE /* script.js */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		80E893212980AE8800A961C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80E893222980AEA500A961C4 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 			files = (
 				80599346298053AF007483AE /* Constants.swift in Sources */,
 				8059934329803278007483AE /* PostViewController.swift in Sources */,
+				80E893232980AEA500A961C4 /* UIViewController+Ext.swift in Sources */,
 				8059932C29802890007483AE /* AppDelegate.swift in Sources */,
 				805993402980295C007483AE /* FeedViewController.swift in Sources */,
 				8059932E29802890007483AE /* SceneDelegate.swift in Sources */,
