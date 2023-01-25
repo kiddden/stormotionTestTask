@@ -14,11 +14,10 @@ class PostViewController: UIViewController, WKNavigationDelegate {
     private var articleID: String!
     
     override func loadView() {
+        super.loadView()
         postWebView = WKWebView()
         postWebView.navigationDelegate = self
         view = postWebView
-        postWebView.scrollView.contentInsetAdjustmentBehavior = .never
-        postWebView.backgroundColor = .systemBackground
     }
     
     init(articleID: String) {
@@ -33,20 +32,36 @@ class PostViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         showLoadingView()
-        configureVC()
+        configureNavBar()
         configureWebView()
     }
     
-    func configureVC() {
-        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(presentShareSheet))
-        navigationItem.rightBarButtonItem = shareButton
+    func configureNavBar() {
+        title = "Post"
         
+        // Making the nav bar not transparent
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithDefaultBackground()
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationItem.scrollEdgeAppearance = navigationBarAppearance
+        navigationItem.standardAppearance = navigationBarAppearance
+        navigationItem.compactAppearance = navigationBarAppearance
+        navigationController?.setNeedsStatusBarAppearanceUpdate()
+      
+        //Adding nav buttons
         let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissVC))
         navigationItem.leftBarButtonItem = backButton
+        
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(presentShareSheet))
+        navigationItem.rightBarButtonItem = shareButton
     }
     
     private func configureWebView() {
-        title = "Post"
+        postWebView.scrollView.contentInsetAdjustmentBehavior = .never
+        postWebView.backgroundColor = .systemBackground
+        postWebView.allowsBackForwardNavigationGestures = true
+        postWebView.allowsLinkPreview = true
+        
         guard let url = URL(string: BaseURLs.postURL + articleID) else { return }
         postWebView.load(URLRequest(url: url))
     }

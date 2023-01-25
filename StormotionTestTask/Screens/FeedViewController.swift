@@ -13,22 +13,37 @@ class FeedViewController: UIViewController, WKNavigationDelegate {
     private var feedWebView: WKWebView!
     
     override func loadView() {
+        super.loadView()
         feedWebView = WKWebView()
         feedWebView.navigationDelegate = self
         view = feedWebView
-        feedWebView.scrollView.contentInsetAdjustmentBehavior = .never
-        feedWebView.backgroundColor = .systemBackground
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showLoadingView()
+        configureNavBar()
         configureWebView()
         injectJSCode()
     }
     
-    private func configureWebView() {
+    private func configureNavBar() {
         title = "Feed"
+        
+        // Making the nav bar not transparent
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithDefaultBackground()
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationItem.scrollEdgeAppearance = navigationBarAppearance
+        navigationItem.standardAppearance = navigationBarAppearance
+        navigationItem.compactAppearance = navigationBarAppearance
+        navigationController?.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    private func configureWebView() {
+        feedWebView.scrollView.contentInsetAdjustmentBehavior = .never
+        feedWebView.backgroundColor = .systemBackground
+        
         guard let url = URL(string: BaseURLs.feedURL) else { return }
         feedWebView.load(URLRequest(url: url))
     }
