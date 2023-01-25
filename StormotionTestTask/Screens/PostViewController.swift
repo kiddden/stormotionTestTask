@@ -17,7 +17,6 @@ class PostViewController: UIViewController, WKNavigationDelegate {
         super.loadView()
         postWebView = WKWebView()
         postWebView.navigationDelegate = self
-        view = postWebView
     }
     
     init(articleID: String) {
@@ -33,10 +32,11 @@ class PostViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         showLoadingView()
         configureNavBar()
+        layoutWebView()
         configureWebView()
     }
     
-    func configureNavBar() {
+    private func configureNavBar() {
         title = "Post"
         
         // Making the nav bar not transparent
@@ -54,6 +54,18 @@ class PostViewController: UIViewController, WKNavigationDelegate {
         
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(presentShareSheet))
         navigationItem.rightBarButtonItem = shareButton
+    }
+    
+    private func layoutWebView() {
+        view.addSubview(postWebView)
+        postWebView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            postWebView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            postWebView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            postWebView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            postWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     private func configureWebView() {
